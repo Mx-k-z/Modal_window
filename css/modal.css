@@ -76,3 +76,12 @@
 .modal-footer button {
 	border-radius: 6px;
 }
+
+.row {
+	display: flex;
+	width: 100%;
+}
+
+.row .col {
+	width: 30%;
+}
