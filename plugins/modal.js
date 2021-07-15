@@ -61,6 +61,10 @@ $.modal = function (options) {
 	$modal.addEventListener('click', modalClose)
 
 	let modalMethods = {
+		setTitle(htm) {
+			$modal.querySelector('.modalt-title').innerHTML = htm
+		},
+
 		setContent(html) {
 			$modal.querySelector('.modal-body').innerHTML = html
 		},
@@ -76,6 +80,9 @@ $.modal = function (options) {
 			setTimeout(() => {
 				$modal.classList.remove('hide')
 				closing = false
+				if (typeof options.onClose === 'function') {
+					options.onClose()
+				}
 			}, ANIMATION_SPEED)
 		},
 

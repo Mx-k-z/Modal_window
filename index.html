@@ -11,63 +11,13 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="/css/modal.css" />
-		<title>Document</title>
+		<title>Modal windows</title>
 	</head>
 	<body>
-		<div class="row">
-			<div class="col">
-				<div class="card">
-					<img
-						style="height: 450px; width: auto"
-						class="card-img-top"
-						src="https://cdn.motor1.com/images/mgl/kJ74N/s1/2020-audi-rs7-sportback-in-glacier-white.jpg"
-					/>
-					<div class="card-body">
-						<h5 class="card-title">Audi</h5>
-						<p class="card-text">Audi r7.</p>
-						<a href="#" class="btn btn-primary">Цена</a>
-						<a href="#" class="btn btn-danger">Удалить</a>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card">
-					<img
-						style="height: 450px; width: auto"
-						class="card-img-top"
-						src="https://fix-my-car.ru/wp-content/uploads/2018/07/xc90-2-rear.jpg"
-					/>
-					<div class="card-body">
-						<h5 class="card-title">Volvo</h5>
-						<p class="card-text">Volvo xc90.</p>
-						<a href="#" class="btn btn-primary">Цена</a>
-						<a href="#" class="btn btn-danger">Удалить</a>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card">
-					<img
-						style="height: 450px; width: auto"
-						class="card-img-top"
-						src="https://cdn.motor1.com/images/mgl/z23Jq/s1/porsche-911-turbo-s.jpg"
-					/>
-					<div class="card-body">
-						<h5 class="card-title">Porsche</h5>
-						<p class="card-text">Porsche 911</p>
-						<a href="#" class="btn btn-primary">Цена</a>
-						<a href="#" class="btn btn-danger">Удалить</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<button id="btnOpen">Открыть окно</button>
-		</div>
-
+		<div class="row" id="car"></div>
 		<script src="base.js"></script>
 		<script src="plugins/modal.js"></script>
+		<script src="plugins/confirm.js"></script>
 		<script src="index.js"></script>
 	</body>
 </html>

@@ -59,7 +59,6 @@
 }
 .modal-close {
 	cursor: pointer;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.425);
 }
 .modal-body {
 	padding: 10px;
@@ -80,6 +79,7 @@
 .row {
 	display: flex;
 	width: 100%;
+	padding: 15px;
 }
 
 .row .col {

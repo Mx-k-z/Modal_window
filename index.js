@@ -1,30 +1,4 @@
-// Параметры для модального окна
-const modal = $.modal({
-	title: 'Max modal',
-	closable: true,
-	width: '500px',
-	content: `<p> Тестовый контент </p>`,
-	footerBar: [
-		{
-			text: 'btnOk',
-			type: 'primary',
-			handler() {
-				modal.close()
-			},
-		},
-		{
-			text: 'btnCancel',
-			type: 'danger',
-			handler() {
-				modal.close()
-			},
-		},
-	],
-})
-
-btnOpen.addEventListener('click', modal.open)
-
-const cars = [
+let cars = [
 	{
 		id: 1,
 		price: 20,
@@ -45,4 +19,64 @@ const cars = [
 	},
 ]
 
-// <input id='textInner' style='width:400px' value='Введи текст и нажми Install...'>
+// Параметры для модального окна
+let priceModal = $.modal({
+	title: 'Цена товара',
+	closable: true,
+	width: '500px',
+	footerBar: [
+		{
+			text: 'ОК',
+			type: 'primary',
+			handler() {
+				priceModal.close()
+			},
+		},
+	],
+})
+
+// Создание карточки
+let createCar = car =>
+	`<div class="col">
+		 <div class="card">
+			 <img
+				 style="height: 600px"
+				 class="card-img-top"
+			 	 src="${car.img}"
+				/>
+				<div class="card-body">
+				  <h5 class="card-title">${car.title}</h5>
+					<p class="card-text"></p>
+					<a href="" class="btn btn-primary" data-btn='price' data-id='${car.id}'>Цена</a>
+					<a href="" class="btn btn-danger" data-btn='delete' data-id='${car.id}'>Удалить</a>
+				</div>
+			</div>
+		</div>`
+
+// Отрисовка всех карточек
+function render() {
+	const html = cars.map(createCar).join('')
+	document.querySelector('#car').innerHTML = html
+}
+render()
+
+// Слушатель для кнопока, вызывающий 2-а разных модальных окна
+document.addEventListener('click', event => {
+	event.preventDefault()
+	const id = +event.target.dataset.id
+	const car = cars.find(c => c.id === id)
+
+	if (event.target.dataset.btn === 'price') {
+		priceModal.setContent(`<span>Цена на ${car.title}: <strong>${car.price}$</strong></span>`)
+		priceModal.open()
+	} else if (event.target.dataset.btn === 'delete') {
+		$.confirm({
+			content: `<span>Вы собираетесь удалить из списка <b>${car.title}</b></span>`,
+		})
+			.then(() => {
+				cars = cars.filter(c => c.id !== id)
+				render()
+			})
+			.catch(() => {})
+	}
+})
