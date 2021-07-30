@@ -43,6 +43,7 @@ let createCar = car =>
 				 style="height: 600px"
 				 class="card-img-top"
 			 	 src="${car.img}"
+			 	 alt="${car.title}"
 				/>
 				<div class="card-body">
 				  <h5 class="card-title">${car.title}</h5>
@@ -55,8 +56,7 @@ let createCar = car =>
 
 // Отрисовка всех карточек
 function render() {
-	const html = cars.map(createCar).join('')
-	document.querySelector('#car').innerHTML = html
+	document.querySelector('#car').innerHTML = cars.map(createCar).join('')
 }
 render()
 

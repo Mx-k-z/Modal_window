@@ -61,10 +61,6 @@ $.modal = function (options) {
 	$modal.addEventListener('click', modalClose)
 
 	let modalMethods = {
-		setTitle(htm) {
-			$modal.querySelector('.modalt-title').innerHTML = htm
-		},
-
 		setContent(html) {
 			$modal.querySelector('.modal-body').innerHTML = html
 		},
